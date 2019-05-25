@@ -62,11 +62,7 @@ class FragmentCountries : BaseFragment(), FragmentCountriesContract.View, Countr
         val headerDecoration = HeaderDecoration(view, false, 10f, 0f, 1)
         recyclerViewCountries.addItemDecoration(headerDecoration)
     }
-
-    override fun setRecyclerViewData(countriesList: ArrayList<CountryDTO>) {
-        this.countriesList.addAll(countriesList)
-    }
-
+    
     override fun onClick(id: Int,name:String) {
         val intent = Intent(context, CountryActivity::class.java)
         intent.putExtra(KEY_COUNTRY_ID, id)
