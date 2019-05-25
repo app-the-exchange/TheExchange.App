@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.theexchange
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4

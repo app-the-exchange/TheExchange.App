@@ -1,7 +1,8 @@
-package com.example.myapplication
+package com.example.theexchange.presentation.ui.main
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.example.theexchange.R
 
 class MainActivity : AppCompatActivity() {
 
