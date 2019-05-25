@@ -22,7 +22,7 @@ class SplashScreenActivity : BaseActivity() {
         handler.postDelayed(
             Runnable {
                 startActivityWithAnimation(this, Intent(this, MainActivity::class.java))
-            }, 4000
+            }, 500
         )
     }
 }
