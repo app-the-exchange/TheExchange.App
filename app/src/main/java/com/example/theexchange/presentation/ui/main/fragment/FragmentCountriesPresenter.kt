@@ -24,20 +24,20 @@ class FragmentCountriesPresenter(
         val disposable = apiManager.getCountryService().fetchCountries()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .doOnSuccess { this::onRequestFetchCountriesSuccess }
+            .doOnSuccess(this::onRequestFetchCountriesSuccess)
             .doOnError(this::onRequestError)
-            .doFinally { mView?.hideLoading() }
+            .doFinally { mView.hideLoading() }
             .subscribe()
 
         mCompositeDisposable.add(disposable)
     }
 
     private fun onRequestFetchCountriesSuccess(response: Response<ArrayList<CountryDTO>>) {
-   Log.i("oi", "oiii")
+        mView.setRecyclerViewData(response.body() as ArrayList<CountryDTO>)
     }
 
     private fun onRequestError(throwable: Throwable) {
-
+        mView.hideLoading()
     }
 
 

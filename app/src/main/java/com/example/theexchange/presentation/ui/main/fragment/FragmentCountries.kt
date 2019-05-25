@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import android.widget.Toast
 import com.example.theexchange.R
 import com.example.theexchange.data.store.remote.api.ApiManager
 import com.example.theexchange.presentation.base.BaseFragment
@@ -67,11 +68,9 @@ class FragmentCountries : BaseFragment(), FragmentCountriesContract.View, Countr
     }
 
     override fun hideLoading() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun showLoading() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     companion object {

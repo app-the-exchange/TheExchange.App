@@ -10,8 +10,7 @@ import retrofit2.http.Path
 
 interface CountryService {
 
-    @Headers("Accept: application/json")
-    @GET("/api/Country")
+    @GET("api/Country")
     fun fetchCountries(): Single<Response<ArrayList<CountryDTO>>>
 
     @Headers("Accept: application/json")
