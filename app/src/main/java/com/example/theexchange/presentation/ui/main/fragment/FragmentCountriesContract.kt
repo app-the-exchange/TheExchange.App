@@ -11,10 +11,14 @@ class FragmentCountriesContract {
         fun initView()
 
         fun setRecyclerViewData(countriesList: ArrayList<CountryDTO>)
+
+        fun hideLoading()
+
+        fun showLoading()
     }
 
     interface Presenter {
 
-        fun onStart()
+        fun start()
     }
 }

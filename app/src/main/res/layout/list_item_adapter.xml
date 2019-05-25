@@ -32,9 +32,8 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toEndOf="@id/circleImageViewCountry"
             style="@style/ListItemAdapterInfo"
-            android:layout_marginLeft="15dp"
-            android:layout_marginStart="15sp"
             app:layout_constraintTop_toBottomOf="@id/textViewCountryName"
+            app:layout_constraintStart_toStartOf="@id/textViewCountryName"
             android:text="A Irlanda, por vezes chamada República da Irlanda ou então Eire, é um Estado..."/>
 
     <View

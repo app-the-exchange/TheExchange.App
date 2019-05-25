@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import com.example.theexchange.R
+import com.example.theexchange.data.store.remote.api.ApiManager
 import com.example.theexchange.presentation.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_countries.*
 import com.example.theexchange.presentation.ui.main.fragment.adapter.CountriesAdapter
@@ -20,6 +21,8 @@ class FragmentCountries : BaseFragment(), FragmentCountriesContract.View, Countr
 
     private val countriesList = ArrayList<CountryDTO>()
 
+    private lateinit var mPresenter: FragmentCountriesPresenter
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,7 +33,11 @@ class FragmentCountries : BaseFragment(), FragmentCountriesContract.View, Countr
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        mPresenter = FragmentCountriesPresenter(this, ApiManager.apiInstance)
+
         initView()
+
+        mPresenter.start()
     }
 
     override fun initView() {
@@ -39,15 +46,6 @@ class FragmentCountries : BaseFragment(), FragmentCountriesContract.View, Countr
 
     override fun setupAdapter() {
         recyclerViewCountries.layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL, false)
-
-        val countryDTO = CountryDTO(
-            1,
-            "Canada",
-            "A Irlanda, por vezes chamada República da Irlanda ou então Eire, é um Estado...",
-            "https://cdn2.iconfinder.com/data/icons/world-flags-1-1/100/USA_-512.png"
-        )
-
-        countriesList.add(countryDTO)
 
         val adapter = CountriesAdapter(countriesList, activity!!.applicationContext, this)
 
@@ -65,6 +63,14 @@ class FragmentCountries : BaseFragment(), FragmentCountriesContract.View, Countr
 
     override fun onClick(id: Int) {
         context?.startActivity(Intent(context, CountryActivity::class.java))
+    }
+
+    override fun hideLoading() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showLoading() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     companion object {

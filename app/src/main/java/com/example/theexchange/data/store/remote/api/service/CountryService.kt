@@ -7,6 +7,6 @@ import retrofit2.http.GET
 
 interface CountryService {
 
-    @GET("/")
-    fun getCustomerUser(): Single<Response<CountryDTO>>
+    @GET("/api/Country")
+    fun fetchCountries(): Single<Response<ArrayList<CountryDTO>>>
 }
