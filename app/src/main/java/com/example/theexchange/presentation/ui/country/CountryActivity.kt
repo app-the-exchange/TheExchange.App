@@ -8,6 +8,7 @@ import com.bumptech.glide.Glide
 import com.example.theexchange.R
 import com.example.theexchange.data.model.Category
 import com.example.theexchange.data.store.remote.api.ApiManager
+import com.example.theexchange.presentation.ui.AlertDialogCustom
 import com.example.theexchange.presentation.ui.country.adapter.CategoryAdapter
 import com.example.theexchange.presentation.ui.main.fragment.FragmentCountries
 import com.example.theexchange.presentation.ui.main.model.CountryDTO
@@ -16,6 +17,7 @@ import kotlinx.android.synthetic.main.activity_country.*
 class CountryActivity : AppCompatActivity(), CountryActivityContract.View, CategoryAdapter.OnClickCountryListener {
 
     private lateinit var mPresenter: CountryActivityPresenter
+    private lateinit var alertDialogCustom: AlertDialogCustom
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,16 +26,9 @@ class CountryActivity : AppCompatActivity(), CountryActivityContract.View, Categ
         mPresenter = CountryActivityPresenter(this, ApiManager.apiInstance)
 
         initView()
-
-        if (intent.extras != null) {
-            val idCountry = intent.extras.getInt(FragmentCountries.KEY_COUNTRY_ID)
-            val nameCountry = intent.extras.getString(FragmentCountries.KEY_COUNTRY_NAME)
-            setupToolbar(nameCountry)
-            mPresenter.requestFetchCountry(idCountry)
-        }
     }
 
-    override fun handleResponse(country: CountryDTO) {
+    override fun setupAndSetDataAdapter(country: CountryDTO) {
         Glide
             .with(this)
             .load(country.banner_image)
@@ -49,12 +44,18 @@ class CountryActivity : AppCompatActivity(), CountryActivityContract.View, Categ
         recyclerViewCategory.adapter = mAdapter
     }
 
-    override fun handleError(error: Throwable) {
+    override fun onError(error: Throwable) {
         Toast.makeText(this, error.message, Toast.LENGTH_LONG).show()
     }
 
 
     override fun initView() {
+        if (intent.extras != null) {
+            val idCountry = intent.extras.getInt(FragmentCountries.KEY_COUNTRY_ID)
+            val nameCountry = intent.extras.getString(FragmentCountries.KEY_COUNTRY_NAME)
+            mPresenter.start(idCountry)
+            setupToolbar(nameCountry)
+        }
     }
 
     override fun onClick(id: Int) {
@@ -62,9 +63,11 @@ class CountryActivity : AppCompatActivity(), CountryActivityContract.View, Categ
     }
 
     override fun hideLoading() {
+        alertDialogCustom.dismiss()
     }
 
     override fun showLoading() {
+        alertDialogCustom = AlertDialogCustom.LoadingBuilder(this).show()!!
     }
 
     private fun setupToolbar(nameCountry: String) {

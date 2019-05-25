@@ -5,18 +5,19 @@ import com.example.theexchange.presentation.ui.main.model.CountryDTO
 interface CountryActivityContract {
     interface View {
 
-        fun handleResponse(country: CountryDTO)
-        fun handleError(error: Throwable)
+        fun setupAndSetDataAdapter(country: CountryDTO)
 
         fun initView()
 
         fun hideLoading()
 
         fun showLoading()
+
+        fun onError(error: Throwable)
     }
 
     interface Presenter {
 
-        fun requestFetchCountry(idCountry: Int)
+        fun start(idCountry: Int)
     }
 }

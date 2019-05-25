@@ -26,7 +26,6 @@
 
             <android.support.v7.widget.AppCompatImageView
                     android:id="@+id/banner_category_country"
-                    android:src="@drawable/banner_irlanda"
                     android:layout_width="match_parent"
                     android:scaleType="centerCrop"
                     android:layout_height="90dp"/>
@@ -37,7 +36,6 @@
                     android:textStyle="bold"
                     android:textColor="@color/title_category"
                     android:textSize="24sp"
-                    android:text="Atrações"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
 
