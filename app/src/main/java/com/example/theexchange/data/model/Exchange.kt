@@ -11,6 +11,7 @@ data class Exchange(
     @SerializedName("position") var position: String,
     @SerializedName("idcountry") var idCountry: Int,
     @SerializedName("idcustomer_app") var idCustomer: String,
-    @SerializedName("code") var code: String
+    @SerializedName("code") var code: String,
+    @SerializedName("country") var country: Country
 ) {
 }
