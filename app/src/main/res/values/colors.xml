@@ -9,6 +9,9 @@
 
     <color name="drawer_navigation_item_checked">#1AFFFFFF</color>
     <color name="drawer_navigation_item_unchecked">#00FFFFFF</color>
+    <color name="title_country">#47525E</color>
+    <color name="content_country">#8492A6</color>
+    <color name="title_category">#FFFFFF</color>
 
     <color name="text_secondary_1">@android:color/white</color>
     <color name="text_secondary_2">#e5ffffff</color>
