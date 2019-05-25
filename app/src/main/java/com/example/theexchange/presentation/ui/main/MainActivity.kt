@@ -1,39 +1,83 @@
 package com.example.theexchange.presentation.ui.main
 
 import android.os.Bundle
+import android.support.design.widget.NavigationView
+import android.support.v4.view.GravityCompat
+import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
-import android.widget.Toast
+import android.view.Menu
+import android.view.MenuItem
 import com.example.theexchange.R
-import com.example.theexchange.data.store.remote.api.ApiManager
-import com.example.theexchange.presentation.ui.main.model.CountryDTO
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
-import retrofit2.Response
+import com.example.theexchange.presentation.ui.main.fragment.FragmentCountries
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.app_bar_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-    private val mCompositeDisposable: CompositeDisposable by lazy { CompositeDisposable() }
+    companion object {
+        const val TAG_FRAGMENT_COUNTRIES = "TAG_FRAGMENT_COUNTRIES"
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        teste()
+        setupToolbar()
+
+        showFragment()
+
+        val toggle = ActionBarDrawerToggle(
+            this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
+        )
+        drawer_layout.addDrawerListener(toggle)
+        toggle.syncState()
+
+        nav_view.setNavigationItemSelectedListener(this)
     }
 
-    private fun teste(){
-        val disposable = ApiManager.apiInstance.countryService.getCustomerUser()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .doOnSuccess(this::onRequestSuccess)
-            .doFinally {  }.subscribe()
-
-            mCompositeDisposable.add(disposable)
+    override fun onBackPressed() {
+        if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
+            drawer_layout.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
+        }
     }
 
-    private fun onRequestSuccess(response: Response<CountryDTO>){
-        Toast.makeText(applicationContext, (response.body() as CountryDTO).nome, Toast.LENGTH_SHORT).show()
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.search -> return true
+            else -> return super.onOptionsItemSelected(item)
+        }
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.nav_login -> {
+            }
+            R.id.nav_exchange -> {
+
+            }
+        }
+
+        drawer_layout.closeDrawer(GravityCompat.START)
+        return true
+    }
+
+    private fun showFragment(){
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, FragmentCountries.newInstance(), TAG_FRAGMENT_COUNTRIES).commit()
+    }
+
+    private fun setupToolbar() {
+        setSupportActionBar(toolbar);
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+        toolbar.title = getString(R.string.toolbar_title)
     }
 }
 

@@ -3,4 +3,16 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <!-- colors of app -->
+    <color name="blue_the_exchange">#0079BF</color>
+
+    <color name="drawer_navigation_item_checked">#1AFFFFFF</color>
+    <color name="drawer_navigation_item_unchecked">#00FFFFFF</color>
+
+    <color name="text_secondary_1">@android:color/white</color>
+    <color name="text_secondary_2">#e5ffffff</color>
+    <color name="text_secondary_3">#ccffffff</color>
+    <color name="text_secondary_4">#a3ffffff</color>
+    <color name="text_secondary_5">#80ffffff</color>
 </resources>

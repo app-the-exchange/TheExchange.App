@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/circleImageViewCountry"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:src="@drawable/ic_canada"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:civ_border_color="#FF000000"/>
+
+    <TextView
+            android:id="@+id/textViewCountryName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/circleImageViewCountry"
+            style="@style/ListItemAdapterTitle"
+            android:layout_marginLeft="15dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="Canada"/>
+
+    <TextView
+            android:id="@+id/textViewCountryShortDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/circleImageViewCountry"
+            style="@style/ListItemAdapterInfo"
+            android:layout_marginLeft="15dp"
+            app:layout_constraintTop_toBottomOf="@id/textViewCountryName"
+            android:text="A Irlanda, por vezes chamada República da Irlanda ou então Eire, é um Estado..."/>
+
+    <View
+            android:layout_width="0dp"
+            android:layout_height="0.5dp"
+            app:layout_constraintStart_toStartOf="@id/textViewCountryShortDescription"
+            app:layout_constraintTop_toBottomOf="@id/textViewCountryShortDescription"
+            android:layout_marginTop="25dp"
+            android:background="#d9d9d9"/>
+
+</android.support.constraint.ConstraintLayout>
