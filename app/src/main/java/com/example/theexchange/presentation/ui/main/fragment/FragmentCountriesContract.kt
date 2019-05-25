@@ -2,7 +2,7 @@ package com.example.theexchange.presentation.ui.main.fragment
 
 import com.example.theexchange.presentation.ui.main.model.CountryDTO
 
-class FragmentCountriesContract {
+interface FragmentCountriesContract {
 
     interface View {
 

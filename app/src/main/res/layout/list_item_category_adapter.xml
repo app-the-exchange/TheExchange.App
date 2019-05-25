@@ -19,7 +19,7 @@
                 android:layout_height="90sp">
 
             <android.support.v7.widget.AppCompatImageView
-                    android:id="@+id/country_selected"
+                    android:id="@+id/banner_category_country"
                     android:src="@drawable/banner_irlanda"
                     android:layout_width="wrap_content"
                     android:scaleType="centerCrop"
@@ -27,7 +27,7 @@
 
             <TextView
                     android:gravity="center_horizontal|center_vertical"
-                    android:id="@+id/title_destiny_country"
+                    android:id="@+id/title_category_country"
                     android:textStyle="bold"
                     android:textColor="@color/title_category"
                     android:textSize="24sp"

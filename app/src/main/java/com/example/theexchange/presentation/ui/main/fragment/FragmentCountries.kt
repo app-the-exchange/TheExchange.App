@@ -10,12 +10,11 @@ import android.widget.LinearLayout
 import com.example.theexchange.R
 import com.example.theexchange.data.store.remote.api.ApiManager
 import com.example.theexchange.presentation.base.BaseFragment
-import kotlinx.android.synthetic.main.fragment_countries.*
+import com.example.theexchange.presentation.ui.country.CountryActivity
 import com.example.theexchange.presentation.ui.main.fragment.adapter.CountriesAdapter
 import com.example.theexchange.presentation.ui.main.fragment.adapter.HeaderDecoration
 import com.example.theexchange.presentation.ui.main.model.CountryDTO
-import com.example.theexchange.presentation.ui.country.CountryActivity
-
+import kotlinx.android.synthetic.main.fragment_countries.*
 
 class FragmentCountries : BaseFragment(), FragmentCountriesContract.View, CountriesAdapter.OnClickCountryListener {
 
@@ -62,7 +61,9 @@ class FragmentCountries : BaseFragment(), FragmentCountriesContract.View, Countr
     }
 
     override fun onClick(id: Int) {
-        context?.startActivity(Intent(context, CountryActivity::class.java))
+        val intent = Intent(context, CountryActivity::class.java)
+        intent.putExtra(KEY_COUNTRY_ID, id)
+        context?.startActivity(intent)
     }
 
     override fun hideLoading() {
@@ -74,6 +75,7 @@ class FragmentCountries : BaseFragment(), FragmentCountriesContract.View, Countr
     }
 
     companion object {
+        const val KEY_COUNTRY_ID = "KEY_COUNTRY_ID"
 
         @JvmStatic
         fun newInstance(): FragmentCountries {
