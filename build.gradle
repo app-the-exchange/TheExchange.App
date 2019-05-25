@@ -28,6 +28,6 @@ task clean(type: Delete) {
 }
 
 ext {
-    urlDesenvolvimento = "\"http://dvp4.dartdigital.com.br/TheExchange/\""
+    urlDesenvolvimento = "\"https://dvp4.dartdigital.com.br/\""
 
 }
