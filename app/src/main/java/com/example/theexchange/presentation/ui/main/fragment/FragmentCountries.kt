@@ -1,7 +1,7 @@
 package com.example.theexchange.presentation.ui.main.fragment
 
+import android.content.Intent
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.fragment_countries.*
 import com.example.theexchange.presentation.ui.main.fragment.adapter.CountriesAdapter
 import com.example.theexchange.presentation.ui.main.fragment.adapter.HeaderDecoration
 import com.example.theexchange.presentation.ui.main.model.CountryDTO
+import com.example.theexchange.presentation.ui.country.CountryActivity
 
 
 class FragmentCountries : BaseFragment(), FragmentCountriesContract.View, CountriesAdapter.OnClickCountryListener {
@@ -63,7 +64,7 @@ class FragmentCountries : BaseFragment(), FragmentCountriesContract.View, Countr
     }
 
     override fun onClick(id: Int) {
-
+        context?.startActivity(Intent(context, CountryActivity::class.java))
     }
 
     companion object {

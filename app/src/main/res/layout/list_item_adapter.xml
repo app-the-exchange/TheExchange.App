@@ -7,7 +7,6 @@
         android:layout_marginBottom="15dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/circleImageViewCountry"
             android:layout_width="65dp"
             android:layout_height="65dp"
@@ -23,6 +22,7 @@
             app:layout_constraintStart_toEndOf="@id/circleImageViewCountry"
             style="@style/ListItemAdapterTitle"
             android:layout_marginLeft="15dp"
+            android:layout_marginStart="15sp"
             app:layout_constraintTop_toTopOf="parent"
             android:text="Canada"/>
 
@@ -33,6 +33,7 @@
             app:layout_constraintStart_toEndOf="@id/circleImageViewCountry"
             style="@style/ListItemAdapterInfo"
             android:layout_marginLeft="15dp"
+            android:layout_marginStart="15sp"
             app:layout_constraintTop_toBottomOf="@id/textViewCountryName"
             android:text="A Irlanda, por vezes chamada República da Irlanda ou então Eire, é um Estado..."/>
 
