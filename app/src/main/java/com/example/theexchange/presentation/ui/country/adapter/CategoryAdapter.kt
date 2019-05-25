@@ -12,7 +12,7 @@ import com.example.theexchange.R
 import com.example.theexchange.data.model.Category
 
 class CategoryAdapter(
-    private val categoryList: ArrayList<Category>,
+    private val categoryList: MutableList<Category>,
     val mContext: Context,
     val onClickCountryListener: OnClickCountryListener
 ) :
@@ -54,7 +54,6 @@ class CategoryAdapter(
     }
 
     interface OnClickCountryListener {
-
         fun onClick(id: Int)
     }
 }

@@ -1,6 +1,5 @@
 package com.example.theexchange.presentation.ui.main.fragment
 
-import android.util.Log
 import com.example.theexchange.data.store.remote.api.ApiManager
 import com.example.theexchange.presentation.ui.main.model.CountryDTO
 import io.reactivex.android.schedulers.AndroidSchedulers

@@ -7,6 +7,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 28
     defaultConfig {
+        useLibrary 'org.apache.http.legacy'
         applicationId "com.example.myapplication"
         minSdkVersion 16
         targetSdkVersion 28

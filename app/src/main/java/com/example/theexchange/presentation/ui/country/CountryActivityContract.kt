@@ -5,11 +5,10 @@ import com.example.theexchange.data.model.Category
 interface CountryActivityContract {
     interface View {
 
-        fun setupAdapter()
+        fun handleResponse(categoryList: List<Category>)
+        fun handleError(error: Throwable)
 
         fun initView()
-
-        fun setRecyclerViewData(categoryList: ArrayList<Category>)
 
         fun hideLoading()
 
@@ -18,6 +17,6 @@ interface CountryActivityContract {
 
     interface Presenter {
 
-        fun start(idCountry:Int)
+        fun requestFetchCountry(idCountry: Int)
     }
 }
