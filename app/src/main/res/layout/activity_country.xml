@@ -22,7 +22,6 @@
 
             <android.support.v7.widget.AppCompatImageView
                     android:id="@+id/country_selected"
-                    android:src="@drawable/banner_irlanda"
                     android:layout_width="wrap_content"
                     app:layout_collapseMode="parallax"
                     android:scaleType="centerCrop"
@@ -67,7 +66,6 @@
                     android:textSize="16sp"
                     android:id="@+id/content_destiny_country"
                     android:layout_marginTop="5sp"
-                    android:text="Aos poucos, a Irlanda vem ganhando o gosto dos brasileiros e se tornando um dos destinos preferidos. O principal motivo? Um povo simpático e festeiro em um país que sabe acolher muito bem quem vem de fora. Além disso, preços mais acessíveis e toda a Europa a seu dispor! Apresentamos, com muito prazer, tudo sobre a Irlanda!"
                     android:layout_below="@+id/title_destiny_country"
                     android:layout_width="wrap_content"
                     android:textColor="@color/content_country"
@@ -92,7 +90,6 @@
                     android:textSize="16sp"
                     android:id="@+id/content_attractions_country"
                     android:layout_marginTop="5sp"
-                    android:text="A República da Irlanda é um país pertencente à União Européia, que usa o euro como moeda nacional. A ilha da Irlanda é composta pela República da Irlanda e pela Irlanda do Norte, que pertence ao Reino Unido e usa libra como moeda. Deu pra entender?"
                     android:layout_below="@+id/title_attractions_country"
                     android:layout_width="wrap_content"
                     android:textColor="@color/content_country"

@@ -41,7 +41,7 @@ class CountriesAdapter(
             textViewDescription.text = countryDTO.short_description
 
             itemView.setOnClickListener {
-                onClickCountryListener.onClick(countryDTO.id)
+                onClickCountryListener.onClick(countryDTO.id,countryDTO.name)
             }
 
             Glide
@@ -56,6 +56,6 @@ class CountriesAdapter(
 
     interface OnClickCountryListener {
 
-        fun onClick(id: Int)
+        fun onClick(id: Int,name:String)
     }
 }

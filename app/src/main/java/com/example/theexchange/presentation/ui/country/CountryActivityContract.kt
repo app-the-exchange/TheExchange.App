@@ -1,11 +1,11 @@
 package com.example.theexchange.presentation.ui.country
 
-import com.example.theexchange.data.model.Category
+import com.example.theexchange.presentation.ui.main.model.CountryDTO
 
 interface CountryActivityContract {
     interface View {
 
-        fun handleResponse(categoryList: List<Category>)
+        fun handleResponse(country: CountryDTO)
         fun handleError(error: Throwable)
 
         fun initView()

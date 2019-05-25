@@ -9,5 +9,7 @@ data class CountryDTO(
     @SerializedName("short_description") var short_description: String,
     @SerializedName("flag_image") var flag_image: String,
     @SerializedName("banner_image") var banner_image: String,
-    @SerializedName("category") var categories: ArrayList<Category>?
+    @SerializedName("category") var categories: ArrayList<Category>,
+    @SerializedName("description1") var description1: String,
+    @SerializedName("description2") var description2: String
 )
