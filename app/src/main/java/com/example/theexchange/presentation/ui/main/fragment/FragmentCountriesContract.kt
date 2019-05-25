@@ -6,11 +6,9 @@ interface FragmentCountriesContract {
 
     interface View {
 
-        fun setupAdapter()
-
         fun initView()
 
-        fun setRecyclerViewData(countriesList: ArrayList<CountryDTO>)
+        fun setupAndSetDataAdapter(countriesList: ArrayList<CountryDTO>)
 
         fun hideLoading()
 

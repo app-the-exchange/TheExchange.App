@@ -6,6 +6,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import retrofit2.Response
+import java.io.IOException
 
 class FragmentCountriesPresenter(
     private val mView: FragmentCountriesContract.View,
@@ -20,6 +21,8 @@ class FragmentCountriesPresenter(
     }
 
     private fun requestFetchCountries() {
+        mView.showLoading()
+
         val disposable = apiManager.getCountryService().fetchCountries()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -32,11 +35,15 @@ class FragmentCountriesPresenter(
     }
 
     private fun onRequestFetchCountriesSuccess(response: Response<ArrayList<CountryDTO>>) {
-        mView.setRecyclerViewData(response.body() as ArrayList<CountryDTO>)
+        mView.setupAndSetDataAdapter(response.body() as ArrayList<CountryDTO>)
     }
 
     private fun onRequestError(throwable: Throwable) {
-        mView.hideLoading()
+        if (throwable is IOException) {
+
+        } else {
+
+        }
     }
 
 

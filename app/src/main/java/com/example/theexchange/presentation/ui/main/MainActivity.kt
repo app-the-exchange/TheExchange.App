@@ -9,6 +9,7 @@ import android.view.Menu
 import android.view.MenuItem
 import com.example.theexchange.R
 import com.example.theexchange.data.store.remote.api.ApiManager
+import com.example.theexchange.presentation.ui.AlertDialogCustom
 import com.example.theexchange.presentation.ui.main.fragment.FragmentCountries
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
@@ -28,7 +29,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         mPresenter = MainActivityPresenter(ApiManager.apiInstance, this)
 
         mPresenter.start()
-
 
     }
 

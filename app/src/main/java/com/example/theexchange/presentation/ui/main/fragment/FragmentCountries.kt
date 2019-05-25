@@ -12,6 +12,16 @@ import com.example.theexchange.R
 import com.example.theexchange.data.store.remote.api.ApiManager
 import com.example.theexchange.presentation.base.BaseFragment
 import com.example.theexchange.presentation.ui.country.CountryActivity
+<<<<<<< HEAD
+<<<<<<< HEAD
+import com.example.theexchange.presentation.ui.AlertDialogCustom
+import kotlinx.android.synthetic.main.fragment_countries.*
+=======
+import com.example.theexchange.presentation.ui.country.CountryActivity
+>>>>>>> d04e2d4107154aca84f5cd65d52170e35c1b7d4e
+=======
+import com.example.theexchange.presentation.ui.country.CountryActivity
+>>>>>>> 0194c84d499e90c327c2d8f4519f3eaac4654b50
 import com.example.theexchange.presentation.ui.main.fragment.adapter.CountriesAdapter
 import com.example.theexchange.presentation.ui.main.fragment.adapter.HeaderDecoration
 import com.example.theexchange.presentation.ui.main.model.CountryDTO
@@ -22,6 +32,8 @@ class FragmentCountries : BaseFragment(), FragmentCountriesContract.View, Countr
     private val countriesList = ArrayList<CountryDTO>()
 
     private lateinit var mPresenter: FragmentCountriesPresenter
+
+    private lateinit var alertDialogCustom: AlertDialogCustom
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,16 +50,19 @@ class FragmentCountries : BaseFragment(), FragmentCountriesContract.View, Countr
         initView()
 
         mPresenter.start()
+
     }
 
     override fun initView() {
-        setupAdapter()
+
     }
 
-    override fun setupAdapter() {
+    override fun setupAndSetDataAdapter(countriesList: ArrayList<CountryDTO>) {
+        this.countriesList.addAll(countriesList)
+
         recyclerViewCountries.layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL, false)
 
-        val adapter = CountriesAdapter(countriesList, activity!!.applicationContext, this)
+        val adapter = CountriesAdapter(this.countriesList, activity!!.applicationContext, this)
 
         recyclerViewCountries.adapter = adapter
 
@@ -57,10 +72,6 @@ class FragmentCountries : BaseFragment(), FragmentCountriesContract.View, Countr
         recyclerViewCountries.addItemDecoration(headerDecoration)
     }
 
-    override fun setRecyclerViewData(countriesList: ArrayList<CountryDTO>) {
-        this.countriesList.addAll(countriesList)
-    }
-
     override fun onClick(id: Int) {
         val intent = Intent(context, CountryActivity::class.java)
         intent.putExtra(KEY_COUNTRY_ID, id)
@@ -68,9 +79,11 @@ class FragmentCountries : BaseFragment(), FragmentCountriesContract.View, Countr
     }
 
     override fun hideLoading() {
+        alertDialogCustom.dismiss()
     }
 
     override fun showLoading() {
+        alertDialogCustom = AlertDialogCustom.LoadingBuilder(context!!).show()!!
     }
 
     companion object {
