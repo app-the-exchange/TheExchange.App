@@ -25,6 +25,8 @@ class CountryActivity : AppCompatActivity(), CountryActivityContract.View, Categ
 
         if (intent.extras != null) {
             val idCountry = intent.extras.getInt(FragmentCountries.KEY_COUNTRY_ID)
+            val nameCountry = intent.extras.getString(FragmentCountries.KEY_COUNTRY_NAME)
+            setupToolbar(nameCountry)
             mPresenter.requestFetchCountry(idCountry)
         }
     }
@@ -42,7 +44,6 @@ class CountryActivity : AppCompatActivity(), CountryActivityContract.View, Categ
 
 
     override fun initView() {
-        setupToolbar()
     }
 
     override fun onClick(id: Int) {
@@ -55,10 +56,11 @@ class CountryActivity : AppCompatActivity(), CountryActivityContract.View, Categ
     override fun showLoading() {
     }
 
-    private fun setupToolbar() {
+    private fun setupToolbar(nameCountry:String) {
         setSupportActionBar(toolbar_country)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
+        toolbar_country.title = nameCountry
     }
 
     override fun onSupportNavigateUp(): Boolean {

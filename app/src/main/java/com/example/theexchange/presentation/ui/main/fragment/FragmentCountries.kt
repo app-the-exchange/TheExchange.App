@@ -61,9 +61,10 @@ class FragmentCountries : BaseFragment(), FragmentCountriesContract.View, Countr
         this.countriesList.addAll(countriesList)
     }
 
-    override fun onClick(id: Int) {
+    override fun onClick(id: Int,name:String) {
         val intent = Intent(context, CountryActivity::class.java)
         intent.putExtra(KEY_COUNTRY_ID, id)
+        intent.putExtra(KEY_COUNTRY_NAME,name)
         context?.startActivity(intent)
     }
 
@@ -75,6 +76,7 @@ class FragmentCountries : BaseFragment(), FragmentCountriesContract.View, Countr
 
     companion object {
         const val KEY_COUNTRY_ID = "KEY_COUNTRY_ID"
+        const val KEY_COUNTRY_NAME = "KEY_COUNTRY_NAME"
 
         @JvmStatic
         fun newInstance(): FragmentCountries {
