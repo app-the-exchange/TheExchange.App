@@ -12,20 +12,11 @@ import com.example.theexchange.R
 import com.example.theexchange.data.store.remote.api.ApiManager
 import com.example.theexchange.presentation.base.BaseFragment
 import com.example.theexchange.presentation.ui.country.CountryActivity
-<<<<<<< HEAD
-<<<<<<< HEAD
 import com.example.theexchange.presentation.ui.AlertDialogCustom
 import kotlinx.android.synthetic.main.fragment_countries.*
-=======
-import com.example.theexchange.presentation.ui.country.CountryActivity
->>>>>>> d04e2d4107154aca84f5cd65d52170e35c1b7d4e
-=======
-import com.example.theexchange.presentation.ui.country.CountryActivity
->>>>>>> 0194c84d499e90c327c2d8f4519f3eaac4654b50
 import com.example.theexchange.presentation.ui.main.fragment.adapter.CountriesAdapter
 import com.example.theexchange.presentation.ui.main.fragment.adapter.HeaderDecoration
 import com.example.theexchange.presentation.ui.main.model.CountryDTO
-import kotlinx.android.synthetic.main.fragment_countries.*
 
 class FragmentCountries : BaseFragment(), FragmentCountriesContract.View, CountriesAdapter.OnClickCountryListener {
 
