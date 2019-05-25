@@ -1,5 +1,6 @@
 package com.example.theexchange.presentation.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
@@ -9,7 +10,7 @@ import android.view.Menu
 import android.view.MenuItem
 import com.example.theexchange.R
 import com.example.theexchange.data.store.remote.api.ApiManager
-import com.example.theexchange.presentation.ui.AlertDialogCustom
+import com.example.theexchange.presentation.ui.exchange.ExchangeActivity
 import com.example.theexchange.presentation.ui.main.fragment.FragmentCountries
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
@@ -57,7 +58,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_login -> {
             }
             R.id.nav_exchange -> {
-
+            startActivity(Intent(this, ExchangeActivity::class.java))
             }
         }
 
@@ -94,7 +95,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private fun setupToolbar() {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
-        toolbar.title = getString(R.string.toolbar_title)
+        toolbar.title = getString(R.string.toolbar_title_country)
     }
 }
 

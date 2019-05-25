@@ -11,7 +11,8 @@
 
     <!-- Main Activity -->
 
-    <string name="toolbar_title">Países</string>
+    <string name="toolbar_title_country">Países</string>
+    <string name="toolbar_title_exchange">Meu intercâmbio</string>
 
 
     <!-- Drawer menu -->

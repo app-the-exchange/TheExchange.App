@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="10dp">
+
+    <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            style="@style/Toolbar.TitleText"
+            android:background="@color/blue_the_exchange"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+
+    <LinearLayout
+            android:id="@+id/container_card"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintStart_toStartOf="parent">
+
+        <android.support.v4.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="#EFF2F7"
+                        android:paddingBottom="10dp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/circleImageViewCustomer"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/ic_placeholder_user"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="15dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:layout_marginLeft="20dp"/>
+
+                    <TextView
+                            android:id="@+id/textViewCustomerName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toEndOf="@id/circleImageViewCustomer"
+                            app:layout_constraintTop_toTopOf="@id/circleImageViewCustomer"
+                            android:text="Fábio Almeida"
+                            android:textColor="#47525E"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:layout_marginLeft="15dp"/>
+
+                    <TextView
+                            android:id="@+id/textViewCustomerPosition"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toStartOf="@id/textViewCustomerName"
+                            app:layout_constraintTop_toBottomOf="@id/textViewCustomerName"
+                            android:text="Student"
+                            android:textColor="#8492A6"/>
+
+                    <ImageView
+                            android:id="@+id/imageViewCountry"
+                            android:layout_width="match_parent"
+                            android:layout_height="280dp"
+                            app:layout_constraintTop_toBottomOf="@id/circleImageViewCustomer"
+                            android:layout_marginTop="15dp"
+                            android:src="@drawable/banner_irlanda"/>
+
+                    <TextView
+                            android:id="@+id/textViewReimaningToTravel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toBottomOf="@id/imageViewCountry"
+                            app:layout_constraintStart_toStartOf="@id/circleImageViewCustomer"
+                            android:textSize="16sp"
+                            android:text="Faltam 89 dias para a sua viagem!"
+                            android:layout_marginTop="5dp"
+                            android:textColor="#47525E"/>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toBottomOf="@id/textViewReimaningToTravel"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:text="INFORMAÇÕES"
+                            android:padding="10dp"
+                            android:textColor="@android:color/white"
+                            android:background="@drawable/selector_button_border_azure_radiance"
+                            android:textStyle="bold"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginRight="10dp"/>
+
+                </android.support.constraint.ConstraintLayout>
+
+                <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp">
+
+                    <TextView
+                            android:id="@+id/textViewDataCustomerTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Dados cadastrais"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:textSize="18sp"
+                            android:layout_marginTop="10dp"/>
+
+                    <TextView
+                            android:id="@+id/textViewLabelName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/textViewDataCustomerTitle"
+                            android:text="Nome"
+                            android:textColor="#8492A6"
+                            android:layout_marginTop="15dp"/>
+
+                    <TextView
+                            android:id="@+id/textViewName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toStartOf="@id/textViewLabelName"
+                            app:layout_constraintTop_toBottomOf="@id/textViewLabelName"
+                            android:text="Fabio Almeida"
+                            android:textColor="#1F2D3D"
+                            android:layout_marginTop="5dp"
+                            android:textSize="16sp"/>
+
+                    <View
+                            android:id="@+id/view1"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            app:layout_constraintTop_toBottomOf="@id/textViewName"
+                            app:layout_constraintStart_toStartOf="@id/textViewName"
+                            android:background="#d9d9d9"
+                            android:layout_marginTop="5dp"/>
+
+                    <TextView
+                            android:id="@+id/textViewLabelEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/view1"
+                            android:text="Email"
+                            android:textColor="#8492A6"
+                            android:layout_marginTop="15dp"/>
+
+                    <TextView
+                            android:id="@+id/textViewEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toStartOf="@id/textViewLabelEmail"
+                            app:layout_constraintTop_toBottomOf="@id/textViewLabelEmail"
+                            android:text="fabioalmeida@gmail.com"
+                            android:textColor="#1F2D3D"
+                            android:layout_marginTop="5dp"
+                            android:textSize="16sp"/>
+
+                    <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            app:layout_constraintTop_toBottomOf="@id/textViewEmail"
+                            app:layout_constraintStart_toStartOf="@id/textViewEmail"
+                            android:background="#d9d9d9"
+                            android:layout_marginTop="5dp"/>
+
+                </android.support.constraint.ConstraintLayout>
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+    </LinearLayout>
+
+
+</LinearLayout>
