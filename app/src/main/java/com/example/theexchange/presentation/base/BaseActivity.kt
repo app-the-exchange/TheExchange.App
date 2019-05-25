@@ -11,4 +11,13 @@ open class BaseActivity : AppCompatActivity() {
         context.startActivity(intent);
         overridePendingTransition(R.anim.fadeout, R.anim.fadein);
     }
+
+
+    fun showDialogErrorConnection() {
+
+    }
+
+    fun showDialogErrorGeneric() {
+
+    }
 }
