@@ -3,8 +3,6 @@
     <string name="title_activity_main2">Main2Activity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="search">Search</string>
 
@@ -12,12 +10,30 @@
     <!-- Main Activity -->
 
     <string name="toolbar_title_country">Países</string>
+
+    <!-- Exchange Activity -->
     <string name="toolbar_title_exchange">Meu intercâmbio</string>
+
+    <!-- Exchange Category Activity -->
+    <string name="toolbar_title_exchange_category">Categorias do intercâmbio</string>
+
+    <!-- Country Activity -->
+    <string name="title_destiny_country">Conheça o destino</string>
+    <string name="title_attractions_country">Atrações turísticas</string>
+
+    <!-- Fly Activity -->
+    <string name="title_fly">Vôo</string>
 
 
     <!-- Drawer menu -->
 
     <string name="login">Login</string>
     <string name="my_exchange">Meu intercâmbio</string>
+
+    <!-- Login -->
+    <string name="title_login_facebook">Sign Facebook</string>
+    <string name="title_login_google">Sign Google</string>
+
+
 
 </resources>
