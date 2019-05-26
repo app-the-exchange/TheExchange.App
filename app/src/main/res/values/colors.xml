@@ -7,6 +7,8 @@
     <!-- colors of app -->
     <color name="blue_the_exchange">#0079BF</color>
 
+    <color name="title_activty_category">#47525E</color>
+    <color name="description_category">#8492A6</color>
     <color name="drawer_navigation_item_checked">#1AFFFFFF</color>
     <color name="drawer_navigation_item_unchecked">#00FFFFFF</color>
     <color name="title_country">#47525E</color>
