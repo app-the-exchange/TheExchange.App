@@ -21,8 +21,9 @@ class SplashScreenActivity : BaseActivity() {
         val handler = Handler()
         handler.postDelayed(
             Runnable {
-                startActivityWithAnimation(this, Intent(this, MainActivity::class.java))
-            }, 500
+                startActivityWithAnimation(this, Intent(this, MainActivity::class.java));
+                this.finish()
+            }, 2000
         )
     }
 }
