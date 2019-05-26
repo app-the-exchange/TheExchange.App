@@ -1,6 +1,9 @@
 package br.com.theexchange.presentation.ui.main
 
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
@@ -9,8 +12,8 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import com.bumptech.glide.Glide
 import br.com.theexchange.R
+import com.bumptech.glide.Glide
 import br.com.theexchange.data.store.remote.api.ApiManager
 import br.com.theexchange.presentation.ui.exchange.ExchangeActivity
 import br.com.theexchange.presentation.ui.login.LoginActivity
@@ -21,7 +24,14 @@ import kotlinx.android.synthetic.main.nav_header_main.view.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, MainActivityContract.View {
 
+    companion object{
+        const val ACTION_LOGIN = "ACTION_LOGIN"
+    }
+
     private lateinit var mPresenter: MainActivityPresenter
+
+    private lateinit var mBroadcastReceiver: BroadcastReceiver
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +45,40 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         mPresenter.start()
 
+        setupBroadcastReceiver()
+    }
+
+    private fun setupBroadcastReceiver(){
+        mBroadcastReceiver = object : BroadcastReceiver() {
+            override fun onReceive(contxt: Context, intent: Intent) {
+                val headerLayout = nav_view.getHeaderView(0)
+                val circularProgressDrawable = CircularProgressDrawable(contxt)
+                circularProgressDrawable.strokeWidth = 5f
+                circularProgressDrawable.centerRadius = 30f
+                circularProgressDrawable.start()
+                Glide.with(contxt)
+                    .load("https://i0.wp.com/marketingcomcafe.com.br/wp-content/uploads/2018/02/perfil-crach%C3%A1-500x500.jpg")
+                    .centerCrop()
+                    .placeholder(circularProgressDrawable)
+                    .into(headerLayout.img_drawer_perfil)
+
+                headerLayout.user_nome.text = "Fábio Almeida"
+                headerLayout.user_email.text = "fabio.almeida@gmail.com"
+
+                drawer_layout.isDrawerOpen(GravityCompat.START)
+                
+            }
+        }
+
+        val intentFilter = IntentFilter()
+        intentFilter.addAction(ACTION_LOGIN)
+
+        registerReceiver(mBroadcastReceiver, intentFilter)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        unregisterReceiver(mBroadcastReceiver)
     }
 
     override fun onBackPressed() {
@@ -66,8 +110,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             startActivity(Intent(this, ExchangeActivity::class.java))
             }
         }
-
-        drawer_layout.closeDrawer(GravityCompat.START)
         return true
     }
 
@@ -77,17 +119,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun setupDrawer() {
-        val headerLayout = nav_view.getHeaderView(0)
-        val circularProgressDrawable = CircularProgressDrawable(this)
-        circularProgressDrawable.strokeWidth = 5f
-        circularProgressDrawable.centerRadius = 30f
-        circularProgressDrawable.start()
-        Glide
-            .with(this)
-            .load("https://i0.wp.com/marketingcomcafe.com.br/wp-content/uploads/2018/02/perfil-crach%C3%A1-500x500.jpg")
-            .centerCrop()
-            .placeholder(circularProgressDrawable)
-            .into(headerLayout.img_drawer_perfil)
         val toggle = ActionBarDrawerToggle(
             this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
         )
