@@ -49,9 +49,17 @@ class AlertDialogCustom(mContext: Context) : AlertDialog(mContext) {
 
         textViewMessage.text = message
 
+        if(!title.isNullOrBlank()){
+            textViewTitle.visibility = View.VISIBLE
+        }
+
+        if(!message.isNullOrBlank()){
+            textViewMessage.visibility = View.VISIBLE
+        }
+
         if (!buttonPositiveText.isNullOrBlank()) {
             buttonPositive.setOnClickListener {
-                negativeListener?.onClick(this, DialogInterface.BUTTON_POSITIVE); dismiss()
+                postiveListener?.onClick(this, DialogInterface.BUTTON_POSITIVE); dismiss()
             }
             buttonPositive.text = buttonPositiveText
         }

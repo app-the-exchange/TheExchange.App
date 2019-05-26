@@ -1,11 +1,9 @@
 package br.com.theexchange.presentation.ui.main
 
-import android.content.BroadcastReceiver
-import android.content.Context
-import android.content.Intent
-import android.content.IntentFilter
+import android.content.*
 import android.os.Bundle
 import android.support.design.widget.NavigationView
+import android.support.v4.content.ContextCompat
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.CircularProgressDrawable
 import android.support.v7.app.ActionBarDrawerToggle
@@ -17,6 +15,7 @@ import android.view.MenuItem
 import br.com.theexchange.R
 import com.bumptech.glide.Glide
 import br.com.theexchange.data.store.remote.api.ApiManager
+import br.com.theexchange.presentation.ui.AlertDialogCustom
 import br.com.theexchange.presentation.ui.exchange.ExchangeActivity
 import br.com.theexchange.presentation.ui.login.LoginActivity
 import br.com.theexchange.presentation.ui.main.fragment.FragmentCountries
@@ -50,6 +49,25 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setupBroadcastReceiver()
     }
 
+    private fun showDialogLogoff() {
+        val alertDialogCustom = AlertDialogCustom.Builder(this)
+            .setMessage("Sair da conta?")
+            ?.setOnClickPositiveButton("Sim", DialogInterface.OnClickListener { dialog, which -> onLogoff() })
+            ?.setOnClickNegative("Não", null)?.show()
+    }
+
+    private fun onLogoff() {
+        val headerLayout = nav_view.getHeaderView(0)
+        headerLayout.user_nome.text = getString(R.string.sign_in)
+        headerLayout.user_email.text = ""
+
+        nav_view.menu.findItem(R.id.nav_login).isVisible = true
+        nav_view.menu.findItem(R.id.nav_logoff).isVisible = false
+        drawer_layout.closeDrawer(Gravity.START)
+
+        headerLayout.img_drawer_perfil.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_placeholder_user))
+    }
+
     private fun setupBroadcastReceiver() {
         mBroadcastReceiver = object : BroadcastReceiver() {
             override fun onReceive(contxt: Context, intent: Intent) {
@@ -67,8 +85,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 headerLayout.user_nome.text = "Fábio Almeida"
                 headerLayout.user_email.text = "fabio.almeida@gmail.com"
 
-                nav_view.menu.removeItem(R.id.nav_login)
+                nav_view.menu.findItem(R.id.nav_login).isVisible = false
                 nav_view.menu.findItem(R.id.nav_exchange).isVisible = true
+                nav_view.menu.findItem(R.id.nav_logoff).isVisible = true
                 drawer_layout.isDrawerOpen(GravityCompat.START)
             }
         }
@@ -107,6 +126,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_exchange -> {
                 startActivity(Intent(this, ExchangeActivity::class.java));
                 drawer_layout.closeDrawer(Gravity.START)
+            }
+            R.id.nav_logoff -> {
+                showDialogLogoff()
             }
         }
         return true
