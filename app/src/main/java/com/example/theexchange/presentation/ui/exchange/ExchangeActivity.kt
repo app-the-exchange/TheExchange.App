@@ -1,5 +1,6 @@
 package com.example.theexchange.presentation.ui.exchange
 
+import android.content.Intent
 import android.os.Bundle
 import com.bumptech.glide.Glide
 import com.example.theexchange.R
@@ -7,6 +8,7 @@ import com.example.theexchange.data.model.Exchange
 import com.example.theexchange.data.store.remote.api.ApiManager
 import com.example.theexchange.presentation.base.BaseActivity
 import com.example.theexchange.presentation.ui.AlertDialogCustom
+import com.example.theexchange.presentation.ui.fly.FlyActivity
 import kotlinx.android.synthetic.main.activity_exchange.*
 
 class ExchangeActivity : BaseActivity(), ExchangeActivityContract.View {
@@ -30,10 +32,12 @@ class ExchangeActivity : BaseActivity(), ExchangeActivityContract.View {
         mPresenter.start()
 
         initView()
+
     }
 
     override fun initView() {
         setupToolbar()
+        setupListener()
     }
 
     override fun hideLoading() {
@@ -75,5 +79,9 @@ class ExchangeActivity : BaseActivity(), ExchangeActivityContract.View {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         toolbar.title = getString(R.string.toolbar_title_country)
+    }
+
+    private fun setupListener() {
+        button_exchange_info.setOnClickListener { startActivity(Intent(this, FlyActivity::class.java)) }
     }
 }

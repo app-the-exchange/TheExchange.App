@@ -2,7 +2,7 @@ package com.example.theexchange.presentation.ui.exchange
 
 import com.example.theexchange.data.model.Exchange
 
-class ExchangeActivityContract {
+interface ExchangeActivityContract {
 
     interface View {
 
