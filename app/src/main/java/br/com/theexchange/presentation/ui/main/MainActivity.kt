@@ -10,6 +10,7 @@ import android.support.v4.view.GravityCompat
 import android.support.v4.widget.CircularProgressDrawable
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.SearchView
 import android.view.Menu
 import android.view.MenuItem
 import br.com.theexchange.R
@@ -28,9 +29,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         const val ACTION_LOGIN = "ACTION_LOGIN"
     }
 
+    private lateinit var searchView: SearchView
     private lateinit var mPresenter: MainActivityPresenter
-
     private lateinit var mBroadcastReceiver: BroadcastReceiver
+    private lateinit var fragmentCountries:FragmentCountries
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -88,11 +90,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.main, menu)
-        return true
-    }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.search -> true
@@ -127,14 +124,32 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun showFragment(fragmentTag: String) {
+        fragmentCountries = FragmentCountries.newInstance()
         when (fragmentTag) {
-            MainActivityPresenter.TAG_FRAGMENT_COUNTRIES -> supportFragmentManager.beginTransaction()
+              MainActivityPresenter.TAG_FRAGMENT_COUNTRIES -> supportFragmentManager.beginTransaction()
                 .replace(
                     R.id.fragment_container,
-                    FragmentCountries.newInstance(),
+                    fragmentCountries,
                     MainActivityPresenter.TAG_FRAGMENT_COUNTRIES
                 ).commit()
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main, menu)
+        val searchItem: MenuItem = menu!!.findItem(R.id.search)
+        searchView = searchItem.actionView as SearchView
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                fragmentCountries.mAdapter.filter.filter(newText)
+                return true
+            }
+        })
+        return true
     }
 
     private fun setupToolbar() {

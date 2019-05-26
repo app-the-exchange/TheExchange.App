@@ -6,6 +6,8 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
@@ -13,11 +15,40 @@ import br.com.theexchange.R
 import br.com.theexchange.presentation.ui.main.model.CountryDTO
 
 class CountriesAdapter(
-    val countriesList: ArrayList<CountryDTO>,
+    val countriesList: MutableList<CountryDTO>,
     val mContext: Context,
     val onClickCountryListener: OnClickCountryListener
 ) :
-    RecyclerView.Adapter<CountriesAdapter.ViewHolder>() {
+    RecyclerView.Adapter<CountriesAdapter.ViewHolder>(), Filterable {
+
+    var listFiltered: MutableList<CountryDTO> = countriesList
+
+    override fun getFilter(): Filter {
+        return object : Filter() {
+            override fun performFiltering(constraint: CharSequence?): FilterResults {
+                val charString: String = constraint.toString()
+                listFiltered = if (charString.length > 3) {
+                    val filteredList: MutableList<CountryDTO> = mutableListOf()
+                    for (s: CountryDTO in countriesList) {
+                        if (s.name.toLowerCase().contains(charString.toLowerCase())) {
+                            filteredList.add(s)
+                        }
+                    }
+                    filteredList
+                } else {
+                    countriesList
+                }
+                val filterResults = FilterResults()
+                filterResults.values = listFiltered
+                return filterResults
+            }
+
+            override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+                listFiltered = results!!.values as MutableList<CountryDTO>
+                notifyDataSetChanged()
+            }
+        }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CountriesAdapter.ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.list_item_adapter, parent, false)
@@ -25,11 +56,11 @@ class CountriesAdapter(
     }
 
     override fun onBindViewHolder(holder: CountriesAdapter.ViewHolder, position: Int) {
-        holder.bindItems(countriesList[position])
+        holder.bindItems(listFiltered[position])
     }
 
     override fun getItemCount(): Int {
-        return countriesList.size
+        return listFiltered.size
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

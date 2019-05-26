@@ -22,8 +22,8 @@ class FragmentCountries : BaseFragment(), FragmentCountriesContract.View, Countr
     private val countriesList = ArrayList<CountryDTO>()
 
     private lateinit var mPresenter: FragmentCountriesPresenter
-
     private lateinit var alertDialogCustom: AlertDialogCustom
+    lateinit var mAdapter: CountriesAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,9 +52,9 @@ class FragmentCountries : BaseFragment(), FragmentCountriesContract.View, Countr
 
         recyclerViewCountries.layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL, false)
 
-        val adapter = CountriesAdapter(this.countriesList, activity!!.applicationContext, this)
+        mAdapter = CountriesAdapter(this.countriesList, activity!!.applicationContext, this)
 
-        recyclerViewCountries.adapter = adapter
+        recyclerViewCountries.adapter = mAdapter
 
         val view = LayoutInflater.from(context).inflate(R.layout.header_recyclerview, null)
 
