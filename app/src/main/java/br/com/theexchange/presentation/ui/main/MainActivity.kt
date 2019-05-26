@@ -32,7 +32,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private lateinit var mBroadcastReceiver: BroadcastReceiver
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -65,8 +64,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 headerLayout.user_nome.text = "Fábio Almeida"
                 headerLayout.user_email.text = "fabio.almeida@gmail.com"
 
+                nav_view.menu.removeItem(R.id.nav_login)
                 drawer_layout.isDrawerOpen(GravityCompat.START)
-                
             }
         }
 

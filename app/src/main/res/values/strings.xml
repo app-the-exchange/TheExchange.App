@@ -29,6 +29,11 @@
 
     <string name="login">Login</string>
     <string name="my_exchange">Meu intercâmbio</string>
+    <string name="expoints">Expoints</string>
+    <string name="community">Comunidade</string>
+    <string name="chat">Chat</string>
+    <string name="agencies">Agencias</string>
+    <string name="partner">Parceiros</string>
 
     <!-- Login -->
     <string name="title_login_facebook">Sign Facebook</string>

@@ -12,6 +12,31 @@
                 android:id="@+id/nav_exchange"
                 android:icon="@drawable/ic_card_travel"
                 android:title="@string/my_exchange"/>
+
+        <item
+                android:id="@+id/nav_expoints"
+                android:icon="@drawable/ic_expoints"
+                android:title="@string/expoints"/>
+
+        <item
+                android:id="@+id/nav_community"
+                android:icon="@drawable/ic_community"
+                android:title="@string/community"/>
+
+        <item
+                android:id="@+id/nav_chat"
+                android:icon="@drawable/ic_chat"
+                android:title="@string/chat"/>
+
+        <item
+                android:id="@+id/nav_agencies"
+                android:icon="@drawable/ic_agencies"
+                android:title="@string/agencies"/>
+
+        <item
+                android:id="@+id/nav_partner"
+                android:icon="@drawable/ic_partner"
+                android:title="@string/partner"/>
     </group>
 
 
