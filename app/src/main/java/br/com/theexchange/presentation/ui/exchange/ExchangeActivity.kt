@@ -9,7 +9,7 @@ import br.com.theexchange.data.model.Exchange
 import br.com.theexchange.data.store.remote.api.ApiManager
 import br.com.theexchange.presentation.base.BaseActivity
 import br.com.theexchange.presentation.ui.AlertDialogCustom
-import br.com.theexchange.presentation.ui.fly.FlyActivity
+import br.com.theexchange.presentation.ui.CategoryDescription.CategoryDescriptionActivity
 import kotlinx.android.synthetic.main.activity_exchange.*
 
 class ExchangeActivity : BaseActivity(), ExchangeActivityContract.View {
@@ -88,6 +88,6 @@ class ExchangeActivity : BaseActivity(), ExchangeActivityContract.View {
     }
 
     private fun setupListener() {
-        button_exchange_info.setOnClickListener { startActivity(Intent(this, FlyActivity::class.java)) }
+        button_exchange_info.setOnClickListener { startActivity(Intent(this, CategoryDescriptionActivity::class.java)) }
     }
 }

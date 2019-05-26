@@ -1,6 +1,6 @@
-package br.com.theexchange.presentation.ui.fly
+package br.com.theexchange.presentation.ui.CategoryDescription
 
-interface FlyActivityContract {
+interface CategoryDescriptionActivityContract {
     interface View {
 
         fun initView()
