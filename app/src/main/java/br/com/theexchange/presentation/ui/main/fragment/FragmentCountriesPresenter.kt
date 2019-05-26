@@ -20,6 +20,10 @@ class FragmentCountriesPresenter(
         requestFetchCountries()
     }
 
+    fun tryAgainRequest() {
+        requestFetchCountries()
+    }
+
     private fun requestFetchCountries() {
         mView.showLoading()
 
@@ -40,9 +44,9 @@ class FragmentCountriesPresenter(
 
     private fun onRequestError(throwable: Throwable) {
         if (throwable is IOException) {
-
+            mView.onErrorConection()
         } else {
-
+            mView.onErrorGeneric()
         }
     }
 

@@ -1,5 +1,6 @@
 package br.com.theexchange.presentation.ui.main.fragment
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -75,6 +76,14 @@ class FragmentCountries : BaseFragment(), FragmentCountriesContract.View, Countr
 
     override fun showLoading() {
         alertDialogCustom = AlertDialogCustom.LoadingBuilder(context!!).show()!!
+    }
+
+    override fun onErrorConection() {
+        showDialogErrorGeneric(DialogInterface.OnClickListener { dialog, which -> mPresenter.tryAgainRequest()  })
+    }
+
+    override fun onErrorGeneric() {
+        showDialogErrorGeneric(DialogInterface.OnClickListener { dialog, which -> mPresenter.tryAgainRequest()  })
     }
 
     companion object {

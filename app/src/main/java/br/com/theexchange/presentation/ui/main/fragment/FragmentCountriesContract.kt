@@ -10,6 +10,10 @@ interface FragmentCountriesContract {
 
         fun setupAndSetDataAdapter(countriesList: ArrayList<CountryDTO>)
 
+        fun onErrorConection()
+
+        fun onErrorGeneric()
+
         fun hideLoading()
 
         fun showLoading()
