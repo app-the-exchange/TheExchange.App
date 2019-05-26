@@ -9,6 +9,7 @@ import br.com.theexchange.R
 import br.com.theexchange.data.model.Category
 import br.com.theexchange.data.store.remote.api.ApiManager
 import br.com.theexchange.presentation.ui.AlertDialogCustom
+import br.com.theexchange.presentation.ui.CategoryDescription.CategoryDescriptionActivity
 import br.com.theexchange.presentation.ui.category.CategoryActivity
 import br.com.theexchange.presentation.ui.country.adapter.CategoryAdapter
 import br.com.theexchange.presentation.ui.exchange.ExchangeActivity
@@ -83,7 +84,7 @@ class ExchangeCategoryActivity : AppCompatActivity(), ExchangeCategoryContract.V
     }
 
     override fun onClick(name: String) {
-        val intent = Intent(this, CategoryActivity::class.java)
+        val intent = Intent(this, CategoryDescriptionActivity::class.java)
         intent.putExtra(FragmentCountries.KEY_COUNTRY_NAME, name)
         startActivity(intent)
     }

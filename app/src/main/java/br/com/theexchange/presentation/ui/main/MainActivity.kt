@@ -67,6 +67,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 headerLayout.user_email.text = "fabio.almeida@gmail.com"
 
                 nav_view.menu.removeItem(R.id.nav_login)
+                nav_view.menu.findItem(R.id.nav_exchange).isVisible = true
                 drawer_layout.isDrawerOpen(GravityCompat.START)
             }
         }

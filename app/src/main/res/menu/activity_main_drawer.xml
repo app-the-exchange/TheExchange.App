@@ -9,6 +9,7 @@
                 android:icon="@drawable/ic_account_box"
                 android:title="@string/login"/>
         <item
+                android:visible="false"
                 android:id="@+id/nav_exchange"
                 android:icon="@drawable/ic_card_travel"
                 android:title="@string/my_exchange"/>
