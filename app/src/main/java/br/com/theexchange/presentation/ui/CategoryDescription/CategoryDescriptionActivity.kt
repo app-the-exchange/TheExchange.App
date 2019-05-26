@@ -1,15 +1,15 @@
-package br.com.theexchange.presentation.ui.fly
+package br.com.theexchange.presentation.ui.CategoryDescription
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import br.com.theexchange.R
-import kotlinx.android.synthetic.main.activity_fly.*
+import kotlinx.android.synthetic.main.activity_category_description.*
 
-class FlyActivity : AppCompatActivity(), FlyActivityContract.View {
+class CategoryDescriptionActivity : AppCompatActivity(), CategoryDescriptionActivityContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_fly)
+        setContentView(R.layout.activity_category_description)
 
         initView()
     }

@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide
 import br.com.theexchange.R
 import br.com.theexchange.data.store.remote.api.ApiManager
 import br.com.theexchange.presentation.ui.exchange.ExchangeActivity
+import br.com.theexchange.presentation.ui.login.LoginActivity
 import br.com.theexchange.presentation.ui.main.fragment.FragmentCountries
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.toolbar
@@ -59,6 +60,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_login -> {
+            startActivity(Intent(this, LoginActivity::class.java))
             }
             R.id.nav_exchange -> {
             startActivity(Intent(this, ExchangeActivity::class.java))
