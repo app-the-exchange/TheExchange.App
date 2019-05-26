@@ -15,11 +15,12 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             android:usesCleartextTraffic="true">
+        <activity android:name=".presentation.ui.exchange_category.ExchangeCategoryActivity">
+        </activity>
         <activity android:name=".presentation.ui.login.LoginActivity">
         </activity>
         <activity
-                android:name=".presentation.ui.CategoryDescription.CategoryDescriptionActivity"
-                android:screenOrientation="portrait">
+                android:name=".presentation.ui.CategoryDescription.CategoryDescriptionActivity">
         </activity>
         <activity
                 android:name=".presentation.ui.category.CategoryActivity"

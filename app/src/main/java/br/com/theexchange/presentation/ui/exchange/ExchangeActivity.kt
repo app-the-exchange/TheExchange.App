@@ -84,10 +84,11 @@ class ExchangeActivity : BaseActivity(), ExchangeActivityContract.View {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
-        toolbar.title = getString(R.string.toolbar_title_country)
+        toolbar.title = getString(R.string.toolbar_title_exchange)
     }
 
     private fun setupListener() {
         button_exchange_info.setOnClickListener { startActivity(Intent(this, CategoryDescriptionActivity::class.java)) }
+
     }
 }

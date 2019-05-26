@@ -1,5 +1,6 @@
 package br.com.theexchange.data.store.remote.api.service
 
+import br.com.theexchange.presentation.ui.exchange_category.model.ExchangeCategoryDTO
 import br.com.theexchange.presentation.ui.main.model.CountryDTO
 import io.reactivex.Single
 import retrofit2.Response
@@ -14,4 +15,7 @@ interface CountryService {
     @Headers("Accept: application/json")
     @GET("api/country/{id}")
     fun fetchCategory(@Path("id") id: Int): Single<Response<CountryDTO>>
+
+    @GET("api/CategoryCustomer/{id}")
+    fun fetchCategoryCustomer(@Path("id") id: Int): Single<Response<ArrayList<ExchangeCategoryDTO>>>
 }
