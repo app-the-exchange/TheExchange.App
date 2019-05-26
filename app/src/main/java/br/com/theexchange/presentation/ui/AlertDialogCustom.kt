@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import br.com.theexchange.R
@@ -18,14 +19,14 @@ class AlertDialogCustom(mContext: Context) : AlertDialog(mContext) {
     private val textViewTitle: TextView by lazy { textViewDialogTitle }
     private val textViewMessage: TextView by lazy { textViewDialogMessage }
 
-    lateinit var postiveListener: DialogInterface.OnClickListener
+    private var postiveListener: DialogInterface.OnClickListener? = null
 
-    lateinit var negativeListener: DialogInterface.OnClickListener
+    private var negativeListener: DialogInterface.OnClickListener? = null
 
     private var title = ""
     private var message = ""
-    private lateinit var buttonPositiveText: String
-    private lateinit var buttonNegativeText: String
+    private var buttonPositiveText: String = ""
+    private var buttonNegativeText: String = ""
 
 
     override fun onStart() {
@@ -48,17 +49,23 @@ class AlertDialogCustom(mContext: Context) : AlertDialog(mContext) {
 
         textViewMessage.text = message
 
-        if (buttonPositiveText != null) {
+        if (!buttonPositiveText.isNullOrBlank()) {
             buttonPositive.setOnClickListener {
                 negativeListener?.onClick(this, DialogInterface.BUTTON_POSITIVE); dismiss()
             }
             buttonPositive.text = buttonPositiveText
         }
-        if (buttonNegativeText != null) {
+        else{
+            buttonPositive.visibility = View.GONE
+        }
+        if (!buttonNegativeText.isNullOrBlank()) {
             buttonNegative.setOnClickListener {
                 negativeListener?.onClick(this, DialogInterface.BUTTON_POSITIVE); dismiss()
             }
             buttonNegative.text = buttonNegativeText
+        }
+        else{
+            buttonNegative.visibility = View.GONE
         }
     }
 
@@ -91,13 +98,13 @@ class AlertDialogCustom(mContext: Context) : AlertDialog(mContext) {
         }
 
         fun setOnClickPositiveButton(text: String, onClickListener: DialogInterface.OnClickListener?): Builder?{
-            alertDialog.postiveListener = onClickListener!!
+            alertDialog.postiveListener = onClickListener
             alertDialog.buttonPositiveText = text
             return this
         }
 
         fun setOnClickNegative(text: String, onClickListener: DialogInterface.OnClickListener?): Builder?{
-            alertDialog.negativeListener = onClickListener!!
+            alertDialog.negativeListener = onClickListener
             alertDialog.buttonNegativeText = text
             return this
         }

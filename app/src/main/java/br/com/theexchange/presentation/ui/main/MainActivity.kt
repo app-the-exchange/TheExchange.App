@@ -11,6 +11,7 @@ import android.support.v4.widget.CircularProgressDrawable
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.SearchView
+import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import br.com.theexchange.R
@@ -25,14 +26,14 @@ import kotlinx.android.synthetic.main.nav_header_main.view.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, MainActivityContract.View {
 
-    companion object{
+    companion object {
         const val ACTION_LOGIN = "ACTION_LOGIN"
     }
 
     private lateinit var searchView: SearchView
     private lateinit var mPresenter: MainActivityPresenter
     private lateinit var mBroadcastReceiver: BroadcastReceiver
-    private lateinit var fragmentCountries:FragmentCountries
+    private lateinit var fragmentCountries: FragmentCountries
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +50,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setupBroadcastReceiver()
     }
 
-    private fun setupBroadcastReceiver(){
+    private fun setupBroadcastReceiver() {
         mBroadcastReceiver = object : BroadcastReceiver() {
             override fun onReceive(contxt: Context, intent: Intent) {
                 val headerLayout = nav_view.getHeaderView(0)
@@ -101,10 +102,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_login -> {
-            startActivity(Intent(this, LoginActivity::class.java))
+                startActivity(Intent(this, LoginActivity::class.java))
             }
             R.id.nav_exchange -> {
-            startActivity(Intent(this, ExchangeActivity::class.java))
+                startActivity(Intent(this, ExchangeActivity::class.java));
+                drawer_layout.closeDrawer(Gravity.START)
             }
         }
         return true
@@ -127,7 +129,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun showFragment(fragmentTag: String) {
         fragmentCountries = FragmentCountries.newInstance()
         when (fragmentTag) {
-              MainActivityPresenter.TAG_FRAGMENT_COUNTRIES -> supportFragmentManager.beginTransaction()
+            MainActivityPresenter.TAG_FRAGMENT_COUNTRIES -> supportFragmentManager.beginTransaction()
                 .replace(
                     R.id.fragment_container,
                     fragmentCountries,
