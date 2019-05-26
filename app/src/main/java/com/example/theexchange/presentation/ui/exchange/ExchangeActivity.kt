@@ -55,7 +55,7 @@ class ExchangeActivity : BaseActivity(), ExchangeActivityContract.View {
 
         Glide
             .with(this)
-            .load("https://scontent.faqa1-1.fna.fbcdn.net/v/t1.0-1/p240x240/16681473_1265882800171472_5661372089732543956_n.jpg?_nc_cat=109&_nc_pt=1&_nc_ht=scontent.faqa1-1.fna&oh=1d37d733300d78caee58c8267cf9a609&oe=5D9311C6")
+            .load("https://i0.wp.com/marketingcomcafe.com.br/wp-content/uploads/2018/02/perfil-crach%C3%A1-500x500.jpg")
             .centerCrop()
             .placeholder(R.drawable.ic_canada)
             .into(circleImageViewCustomer)
