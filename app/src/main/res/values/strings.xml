@@ -10,7 +10,12 @@
     <!-- Main Activity -->
 
     <string name="toolbar_title_country">Países</string>
+
+    <!-- Exchange Activity -->
     <string name="toolbar_title_exchange">Meu intercâmbio</string>
+
+    <!-- Exchange Category Activity -->
+    <string name="toolbar_title_exchange_category">Categorias do intercâmbio</string>
 
     <!-- Country Activity -->
     <string name="title_destiny_country">Conheça o destino</string>

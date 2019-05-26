@@ -9,6 +9,7 @@ import br.com.theexchange.data.model.Exchange
 import br.com.theexchange.data.store.remote.api.ApiManager
 import br.com.theexchange.presentation.base.BaseActivity
 import br.com.theexchange.presentation.ui.AlertDialogCustom
+import br.com.theexchange.presentation.ui.exchange_category.ExchangeCategoryActivity
 import br.com.theexchange.presentation.ui.fly.FlyActivity
 import kotlinx.android.synthetic.main.activity_exchange.*
 
@@ -84,10 +85,10 @@ class ExchangeActivity : BaseActivity(), ExchangeActivityContract.View {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
-        toolbar.title = getString(R.string.toolbar_title_country)
+        toolbar.title = getString(R.string.toolbar_title_exchange)
     }
 
     private fun setupListener() {
-        button_exchange_info.setOnClickListener { startActivity(Intent(this, FlyActivity::class.java)) }
+        button_exchange_info.setOnClickListener { startActivity(Intent(this, ExchangeCategoryActivity::class.java)) }
     }
 }
