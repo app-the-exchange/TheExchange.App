@@ -1,6 +1,7 @@
 package com.example.theexchange.presentation.ui.main.fragment.adapter
 
 import android.content.Context
+import android.support.v4.widget.CircularProgressDrawable
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -44,11 +45,16 @@ class CountriesAdapter(
                 onClickCountryListener.onClick(countryDTO.id,countryDTO.name)
             }
 
+            val circularProgressDrawable = CircularProgressDrawable(mContext)
+            circularProgressDrawable.strokeWidth = 5f
+            circularProgressDrawable.centerRadius = 30f
+            circularProgressDrawable.start()
+
             Glide
                 .with(mContext)
                 .load(countryDTO.flag_image)
                 .centerCrop()
-                .placeholder(R.drawable.ic_canada)
+                .placeholder(circularProgressDrawable)
                 .into(imageViewCountry)
 
         }

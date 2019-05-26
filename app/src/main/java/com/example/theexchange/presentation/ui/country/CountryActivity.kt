@@ -2,6 +2,7 @@ package com.example.theexchange.presentation.ui.country
 
 import android.content.Intent
 import android.os.Bundle
+import android.support.v4.widget.CircularProgressDrawable
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.widget.Toast
@@ -15,6 +16,7 @@ import com.example.theexchange.presentation.ui.country.adapter.CategoryAdapter
 import com.example.theexchange.presentation.ui.main.fragment.FragmentCountries
 import com.example.theexchange.presentation.ui.main.model.CountryDTO
 import kotlinx.android.synthetic.main.activity_country.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 class CountryActivity : AppCompatActivity(), CountryActivityContract.View, CategoryAdapter.OnClickCountryListener {
 
@@ -31,9 +33,14 @@ class CountryActivity : AppCompatActivity(), CountryActivityContract.View, Categ
     }
 
     override fun setupAndSetDataAdapter(country: CountryDTO) {
+        val circularProgressDrawable = CircularProgressDrawable(this)
+        circularProgressDrawable.strokeWidth = 5f
+        circularProgressDrawable.centerRadius = 30f
+        circularProgressDrawable.start()
         Glide
             .with(this)
             .load(country.banner_image)
+            .placeholder(circularProgressDrawable)
             .centerCrop()
             .into(country_selected)
 

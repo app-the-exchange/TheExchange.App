@@ -1,6 +1,7 @@
 package com.example.theexchange.presentation.ui.country.adapter
 
 import android.content.Context
+import android.support.v4.widget.CircularProgressDrawable
 import android.support.v7.widget.AppCompatImageView
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -43,11 +44,15 @@ class CategoryAdapter(
                 onClickCountryListener.onClick(category.name)
             }
 
+            val circularProgressDrawable = CircularProgressDrawable(mContext)
+            circularProgressDrawable.strokeWidth = 5f
+            circularProgressDrawable.centerRadius = 30f
+            circularProgressDrawable.start()
             Glide
                 .with(mContext)
                 .load(category.background_image)
                 .centerCrop()
-                .placeholder(R.drawable.ic_canada)
+                .placeholder(circularProgressDrawable)
                 .into(bannerCategory)
 
         }

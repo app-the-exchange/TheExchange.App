@@ -2,6 +2,7 @@ package com.example.theexchange.presentation.ui.exchange
 
 import android.content.Intent
 import android.os.Bundle
+import android.support.v4.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.example.theexchange.R
 import com.example.theexchange.data.model.Exchange
@@ -50,18 +51,23 @@ class ExchangeActivity : BaseActivity(), ExchangeActivityContract.View {
         textViewName.text = exchange.name
         textViewEmail.text = exchange.email
 
+        val circularProgressDrawable = CircularProgressDrawable(this)
+        circularProgressDrawable.strokeWidth = 5f
+        circularProgressDrawable.centerRadius = 30f
+        circularProgressDrawable.start()
+
         Glide
             .with(this)
             .load(exchange.country.banner_image)
             .centerCrop()
-            .placeholder(R.drawable.ic_canada)
+            .placeholder(circularProgressDrawable)
             .into(imageViewCountry)
 
         Glide
             .with(this)
             .load("https://i0.wp.com/marketingcomcafe.com.br/wp-content/uploads/2018/02/perfil-crach%C3%A1-500x500.jpg")
             .centerCrop()
-            .placeholder(R.drawable.ic_canada)
+            .placeholder(circularProgressDrawable)
             .into(circleImageViewCustomer)
     }
 
