@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.theexchange">
+          package="br.com.theexchange">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
-            android:name=".MainApplication"
+            android:name="br.com.theexchange.MainApplication"
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
@@ -15,26 +15,26 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             android:usesCleartextTraffic="true">
-        <activity android:name=".presentation.ui.fly.FlyActivity"
+        <activity android:name="br.com.theexchange.presentation.ui.fly.FlyActivity"
         android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".presentation.ui.category.CategoryActivity"
+        <activity android:name="br.com.theexchange.presentation.ui.category.CategoryActivity"
                   android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".presentation.ui.exchange.ExchangeActivity"
+        <activity android:name="br.com.theexchange.presentation.ui.exchange.ExchangeActivity"
                   android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".presentation.ui.country.CountryActivity"
+        <activity android:name="br.com.theexchange.presentation.ui.country.CountryActivity"
                   android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".presentation.SplashScreenActivity">
+        <activity android:name="br.com.theexchange.presentation.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".presentation.ui.main.MainActivity"
+        <activity android:name="br.com.theexchange.presentation.ui.main.MainActivity"
                   android:screenOrientation="portrait">
         </activity>
 
