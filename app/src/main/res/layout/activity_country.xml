@@ -6,7 +6,7 @@
         android:background="@color/title_category"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.theexchange.presentation.ui.country.CountryActivity">
+        tools:context="br.com.theexchange.presentation.ui.country.CountryActivity">
 
     <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
