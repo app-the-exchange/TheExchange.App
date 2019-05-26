@@ -63,6 +63,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         nav_view.menu.findItem(R.id.nav_login).isVisible = true
         nav_view.menu.findItem(R.id.nav_logoff).isVisible = false
+        nav_view.menu.findItem(R.id.nav_exchange).isVisible = false
         drawer_layout.closeDrawer(Gravity.START)
 
         headerLayout.img_drawer_perfil.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_placeholder_user))
