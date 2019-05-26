@@ -14,5 +14,5 @@ interface CountryService {
 
     @Headers("Accept: application/json")
     @GET("api/country/{id}")
-    fun fetchCategory(@Path("id") id: Int): Observable<CountryDTO>
+    fun fetchCategory(@Path("id") id: Int): Single<Response<CountryDTO>>
 }

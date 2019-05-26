@@ -1,5 +1,6 @@
 package com.example.theexchange.presentation.ui.country
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
@@ -8,6 +9,8 @@ import com.bumptech.glide.Glide
 import com.example.theexchange.R
 import com.example.theexchange.data.model.Category
 import com.example.theexchange.data.store.remote.api.ApiManager
+import com.example.theexchange.presentation.ui.AlertDialogCustom
+import com.example.theexchange.presentation.ui.category.CategoryActivity
 import com.example.theexchange.presentation.ui.country.adapter.CategoryAdapter
 import com.example.theexchange.presentation.ui.main.fragment.FragmentCountries
 import com.example.theexchange.presentation.ui.main.model.CountryDTO
@@ -16,6 +19,7 @@ import kotlinx.android.synthetic.main.activity_country.*
 class CountryActivity : AppCompatActivity(), CountryActivityContract.View, CategoryAdapter.OnClickCountryListener {
 
     private lateinit var mPresenter: CountryActivityPresenter
+    private lateinit var alertDialogCustom: AlertDialogCustom
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,16 +28,9 @@ class CountryActivity : AppCompatActivity(), CountryActivityContract.View, Categ
         mPresenter = CountryActivityPresenter(this, ApiManager.apiInstance)
 
         initView()
-
-        if (intent.extras != null) {
-            val idCountry = intent.extras.getInt(FragmentCountries.KEY_COUNTRY_ID)
-            val nameCountry = intent.extras.getString(FragmentCountries.KEY_COUNTRY_NAME)
-            setupToolbar(nameCountry)
-            mPresenter.requestFetchCountry(idCountry)
-        }
     }
 
-    override fun handleResponse(country: CountryDTO) {
+    override fun setupAndSetDataAdapter(country: CountryDTO) {
         Glide
             .with(this)
             .load(country.banner_image)
@@ -49,22 +46,32 @@ class CountryActivity : AppCompatActivity(), CountryActivityContract.View, Categ
         recyclerViewCategory.adapter = mAdapter
     }
 
-    override fun handleError(error: Throwable) {
+    override fun onError(error: Throwable) {
         Toast.makeText(this, error.message, Toast.LENGTH_LONG).show()
     }
 
 
     override fun initView() {
+        if (intent.extras != null) {
+            val idCountry = intent.extras.getInt(FragmentCountries.KEY_COUNTRY_ID)
+            val nameCountry = intent.extras.getString(FragmentCountries.KEY_COUNTRY_NAME)
+            mPresenter.start(idCountry)
+            setupToolbar(nameCountry)
+        }
     }
 
-    override fun onClick(id: Int) {
-        Toast.makeText(this, "Description category", Toast.LENGTH_LONG).show()
+    override fun onClick(name:String) {
+        val intent = Intent(this, CategoryActivity::class.java)
+        intent.putExtra(FragmentCountries.KEY_COUNTRY_NAME,name)
+        startActivity(intent)
     }
 
     override fun hideLoading() {
+        alertDialogCustom.dismiss()
     }
 
     override fun showLoading() {
+        alertDialogCustom = AlertDialogCustom.LoadingBuilder(this).show()!!
     }
 
     private fun setupToolbar(nameCountry: String) {

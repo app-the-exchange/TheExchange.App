@@ -1,8 +1,8 @@
-package com.example.theexchange.presentation.ui.country
+package com.example.theexchange.presentation.ui.category
 
 import com.example.theexchange.presentation.ui.main.model.CountryDTO
 
-interface CountryActivityContract {
+interface CategoryActivityContract {
     interface View {
 
         fun setupAndSetDataAdapter(country: CountryDTO)
@@ -18,6 +18,6 @@ interface CountryActivityContract {
 
     interface Presenter {
 
-        fun start(idCountry: Int)
+        fun start()
     }
 }
