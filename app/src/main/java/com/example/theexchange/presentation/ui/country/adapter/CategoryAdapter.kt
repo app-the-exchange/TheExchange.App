@@ -40,7 +40,7 @@ class CategoryAdapter(
             titleCategory.text = category.name
 
             itemView.setOnClickListener {
-                onClickCountryListener.onClick(category.id)
+                onClickCountryListener.onClick(category.name)
             }
 
             Glide
@@ -54,6 +54,6 @@ class CategoryAdapter(
     }
 
     interface OnClickCountryListener {
-        fun onClick(id: Int)
+        fun onClick(name:String)
     }
 }

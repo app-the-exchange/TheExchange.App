@@ -13,8 +13,6 @@ class ExchangeActivity : BaseActivity(), ExchangeActivityContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_exchange)
-
-
     }
 
     override fun initView() {

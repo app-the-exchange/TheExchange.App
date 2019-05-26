@@ -1,5 +1,6 @@
 package com.example.theexchange.presentation.ui.country
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
@@ -9,6 +10,7 @@ import com.example.theexchange.R
 import com.example.theexchange.data.model.Category
 import com.example.theexchange.data.store.remote.api.ApiManager
 import com.example.theexchange.presentation.ui.AlertDialogCustom
+import com.example.theexchange.presentation.ui.category.CategoryActivity
 import com.example.theexchange.presentation.ui.country.adapter.CategoryAdapter
 import com.example.theexchange.presentation.ui.main.fragment.FragmentCountries
 import com.example.theexchange.presentation.ui.main.model.CountryDTO
@@ -58,8 +60,10 @@ class CountryActivity : AppCompatActivity(), CountryActivityContract.View, Categ
         }
     }
 
-    override fun onClick(id: Int) {
-        Toast.makeText(this, "Description category", Toast.LENGTH_LONG).show()
+    override fun onClick(name:String) {
+        val intent = Intent(this, CategoryActivity::class.java)
+        intent.putExtra(FragmentCountries.KEY_COUNTRY_NAME,name)
+        startActivity(intent)
     }
 
     override fun hideLoading() {
