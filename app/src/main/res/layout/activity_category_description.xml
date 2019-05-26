@@ -16,4 +16,191 @@
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"/>
 
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/toolbar_fly"
+            app:layout_constraintStart_toStartOf="parent">
+
+        <android.support.v4.widget.NestedScrollView android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content">
+            <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_margin="10dp"
+                    android:background="#570079BF">
+
+                <TextView
+                        android:id="@+id/textViewTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:gravity="center"
+                        android:layout_marginTop="15dp"
+                        android:text="Dados do vôo"
+                        android:textSize="18dp"
+                        android:textStyle="bold"/>
+
+                <TextView
+                        android:id="@+id/textViewFly"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/textViewTitle"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:text="Vôo"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="20dp"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="#8492A6"/>
+
+                <TextView
+                        android:id="@+id/textViewFlyInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/textViewFly"
+                        app:layout_constraintStart_toStartOf="@id/textViewFly"
+                        android:text="JJ320 - A"
+                        android:layout_marginTop="5dp"/>
+
+                <TextView
+                        android:id="@+id/textViewDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/textViewFlyInfo"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:text="Data"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="30dp"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="#8492A6"/>
+
+                <TextView
+                        android:id="@+id/textViewDateInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/textViewDate"
+                        app:layout_constraintStart_toStartOf="@id/textViewDate"
+                        android:text="25/10/2019"
+                        android:layout_marginTop="5dp"/>
+
+                <TextView
+                        android:id="@+id/textViewHour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/textViewDateInfo"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:text="Hora"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="30dp"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="#8492A6"/>
+
+                <TextView
+                        android:id="@+id/textViewHourInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/textViewHour"
+                        app:layout_constraintStart_toStartOf="@id/textViewDate"
+                        android:text="04h:47min"
+                        android:layout_marginTop="5dp"/>
+
+                <TextView
+                        android:id="@+id/textViewGate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/textViewHourInfo"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:text="Portão"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="30dp"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="#8492A6"/>
+
+                <TextView
+                        android:id="@+id/textViewGateInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/textViewGate"
+                        app:layout_constraintStart_toStartOf="@id/textViewDate"
+                        android:text="JJ320 - A"
+                        android:layout_marginTop="5dp"/>
+
+                <TextView
+                        android:id="@+id/textViewExit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/textViewGateInfo"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:text="Saída"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="30dp"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="#8492A6"/>
+
+                <TextView
+                        android:id="@+id/textViewExitInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/textViewExit"
+                        app:layout_constraintStart_toStartOf="@id/textViewExit"
+                        android:text="São Paulo - Guarulhos"
+                        android:layout_marginTop="5dp"/>
+
+                <TextView
+                        android:id="@+id/textViewDestiny"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/textViewExitInfo"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:text="Destino"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="30dp"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="#8492A6"/>
+
+                <TextView
+                        android:id="@+id/textViewDestinyInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/textViewDestiny"
+                        app:layout_constraintStart_toStartOf="@id/textViewDestiny"
+                        android:text="Dublin - Irlanda"
+                        android:layout_marginTop="5dp"/>
+
+                <TextView
+                        android:id="@+id/textViewInfoImportant"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/textViewDestinyInfo"
+                        app:layout_constraintStart_toStartOf="@id/textViewDestinyInfo"
+                        android:text="Informações importantes"
+                        android:layout_marginTop="20dp"
+                        android:textStyle="bold"/>
+
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/textViewInfoImportant"
+                        app:layout_constraintStart_toStartOf="@id/textViewInfoImportant"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginTop="5dp"
+                        android:text="Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusant doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis.
+
+Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusant doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis.
+
+Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusant doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis."/>
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
